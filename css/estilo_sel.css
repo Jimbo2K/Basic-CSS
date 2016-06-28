@@ -1,0 +1,136 @@
+/* CSS utilizado por selectores.html */
+
+/* ====== Estilos para el arbol de documento ===== */
+
+/* Defino estilo para el contenedor global con ID #html_tag y estilo básico
+(principalmente que usen border y fuente en negrita) de partida para TODOS (*) sus elementos DESCENDIENTES */
+#html_tag, #html_tag * {
+	margin: 5px auto;
+	padding: 5px;
+	border: 2px solid black;
+	font-weight: bold;
+	font-size: .9em;
+	width: 75%;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #html_tag tendrán color rojo*/
+#html_tag > * {
+	border-color: red;
+	color: red;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #head_tag tendrán color naranja*/
+#head_tag>* {
+	border-color: orange;
+	color: orange;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #body_tag tendrán color azul*/
+#body_tag>* {
+	color: blue;
+	border-color: blue;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #header_tag tendrán color cian*/
+#header_tag > * {
+	border-color: #0ff;
+	color: #0ff;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #section_tag tendrán color amarillo*/
+#section_tag > * {
+	border-color: #cc0;
+	color: #cc0;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #ul_tag tendrán color verde*/
+#ul_tag > * {
+	border-color: green;
+	color: green;
+}
+
+/*TODOS (*) los HIJOS (>) del elemento con ID #footer_tag tendrán color magenta*/
+#footer_tag > * {
+	border-color: #f0f;
+	color: #f0f;
+}
+
+/* =============================================== */
+
+/* Se ha uitilizado el id #universal para sólo afectar al estilo de una parte del
+código y poder ilustrar el uso del selector universal */
+#universal * {
+	border-color: red;
+	background-color: darkgrey;
+}
+/* En el "código" del ejemplo se han suprimido las propiedades width, height y margin
+para facilitar la compresión del uso del selector universal */
+.caja1 {
+	border: 3px solid;
+	width: 150px;
+	height: 200px;
+	margin: 10px auto;
+}
+.caja2 {
+	border: 2px solid;
+	width: 90px;
+	height: 150px;
+	margin: 10px auto;
+}
+.caja3 {
+	border: 1px solid;
+	width: 50px;
+	height: 100px;
+	margin: 5px auto;
+}
+
+/* ===== Ejemplo de selector descendente utilizando selector universal ===== */
+#ancestro {
+	border: 2px solid;
+	width: 220px;
+	height: 440px;
+	margin: 10px auto;
+	font-size: .8em;
+}
+#descendiente1 {
+	border: 1px solid;
+	margin: 5px auto;
+	width: 180px;
+	height: 200px;
+}
+#descendiente2 {
+	border: 1px solid;
+	margin: 5px auto;
+	width: 150px;
+	height: 170px;
+}
+#descendiente3 {
+	border: 1px solid;
+	margin: 5px auto;
+	width: 100px;
+	height: 140px;
+}
+#ancestro * div {
+	border-color: blue;
+}
+
+/* =============================================== */
+
+#hijo > * {
+	font-style: italic;
+	color: blue;
+}
+
+.hermano p + a {
+	color: red;
+}
+.hermano a + p {
+	color: blue;
+}
+
+.hermano2 p ~ a {
+	color: red;
+}
+.hermano2 a ~ p {
+	color: blue;
+}

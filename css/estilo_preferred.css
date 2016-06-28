@@ -1,0 +1,12 @@
+/*Hoja de estilos PREFERENTE
+Esta hoja de estilo es la que utilizará el navegador por defecto, machacando las reglas que coincidan con la de la hoja PERMANENTE (css/estilos.css) */
+.parrafo {
+	font-family: arial, sans-serif;
+	font-size: .9em;
+	color: red;
+}
+.cajarena {
+	margin: 10px auto;
+	border: 1px solid red;
+	background-color: #ddd;
+}

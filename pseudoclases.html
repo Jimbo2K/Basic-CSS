@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<!-- Documento generado por Pablo Garrido (30/04/2016)
+Este archivo HTML debe ser enlazado desde index.html -->
+
+<html lang="es">
+<head>
+	<title>clases y pseudoclases</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Pablo Garrido">
+	<meta name="description" content="Uso de pseudoclases CSS">
+	<meta name="keywords" content="first-child, link, visited, hover, active, focus, lang, checked, disabled, empty, enabled, first-of-type, in-range, invalid, last-child, last-of-type, not, nth-child, nth-last-child, nth-last-of-type, nth-of-type, only-of-type, only-child, optional, out-of-range, read-only, read-write, required, root, target, valid">
+	<link rel="stylesheet" href="css/estilos.css" type="text/css">
+	<!-- CSS con ejemplos prácticos de optimización -->
+	<link rel="stylesheet" href="css/estilos_psclass.css" type="text/css">
+</head>
+
+<body>
+
+	<header>
+		<h1>ELEMENTOS Y PSEUDOELEMENTOS</h1>
+	</header>
+
+	<section>
+		<p>Los archivos utilizados en este tema son:</p>
+		<ul>
+			<li>HTML: <code>optimizacion.html</code></li>
+			<li>CSS: <code>css/estilos.css</code></li>
+			<li>CSS: <code>css/estilos_psclass.css</code></li>
+		</ul>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Que es una pseudoclase</h2>
+		<p>Las pseudoclases permiten modificar el estilo de un elemento en función de su estado o posición jerárquica (último hijo, 5º descendiente, etc.).</p>
+		<p>La sintáxis consiste en añadir al final del selector ":nombre_pseudoclase".</p>
+		<div class="cajaejemplo csspre">	Ejemplo<br>
+	<code>#cajaejemplo > div p<strong>:first-child</strong> {
+		color: red;
+		font-style: italic;
+	}</code>
+		</div><br>
+	</section>
+
+	<section class="cajagris">
+		<h2>Pseudoclases Links</h2>
+		<p>Se utilizan principalmente con elementos &lt;a&gt;.</p>
+
+		<h3>:link</h3>
+		<p> Permite modificar el estilo de enlaces &lt;a&gt; que todavía <strong>no han sido visitados</strong> por los usuarios de la Web.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;a href="http://www.google.es"&gt;Google&lt;/a&gt;
+	&lt;a href="http://www.w3schools.com"
+	class="pslink"&gt;w3schools&lt;/a&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>a.pslink:link {
+	color: red;
+}</code>
+			</div>
+
+			<div>RESULTADO<br>Haz click en los siguientes enlaces:<br><br>
+				<a href="http://www.google.es" target="_blank">Google</a><br><br>
+				<a href="http://www.w3schools.com" target="_blank" class="pslink">w3schools</a>
+			</div>
+
+		</div>
+		<p class="csspre">	Nota: si quieres "desvisitar" los enlaces tendrás que borrar los datos de navegación.</p>
+
+		<h3>:visited</h3>
+		<p> Modifica el estilo de enlaces que <strong>han sido visitados</strong> por los usuarios de la Web.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;a href="http://www.google.es"&gt;Google&lt;/a&gt;
+	&lt;a href="http://www.wikipedia.org"
+	class="psvisited"&gt;Wikipedia&lt;/a&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>a.psvisited:visited {
+	color: green;
+}</code>
+			</div>
+
+			<div>RESULTADO<br>Haz click en los siguientes enlaces:<br><br>
+				<a href="http://www.google.es" target="_blank">Google</a><br><br>
+				<a href="http://www.wikipedia.org" target="_blank" class="psvisited">Wikipedia</a>
+			</div>
+
+		</div>
+		<p class="csspre">	Nota: si quieres "desvisitar" los enlaces tendrás que borrar los datos de navegación.</p>
+
+		<h3>:hover</h3>
+		<p> Modifica el estilo de un elemento <strong>mientras el cursor esté sobre él</strong>.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;p&gt;Un párrafo normal.&lt;/p&gt;
+	&lt;p class="pshover"&gt;Un párrafo especial.&lt;/p&gt;
+	&lt;p&gt;Otro párrafo normal.&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>p.pshover:hover {
+	color: yellow;
+}</code>
+			</div>
+
+			<div>RESULTADO<br>Pasa el cursor sobre los párrafos <br>
+				<p>Un párrafo normal.</p>
+				<p class="pshover">Un párrafo especial.</p>
+				<p>Otro párrafo normal.</p>
+			</div>
+
+		</div>
+
+		<h3>:active</h3>
+		<p> Modifica el estilo de un elemento <strong>mientras se esté haciendo click sobre él</strong>. Su uso tiene un sentido claro para &lt;a&gt; pero también se puede utilizar con otros elementos html.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;p id="secreto"&gt;¡¡SORPRESA!!&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#secreto {
+	color: red;
+	background-color: red;
+}
+p#secreto:active {
+	background-color: #ccc;
+}</code>
+			</div>
+
+			<div>Resultado <br>Haz click sobre el recuadro rojo <br>
+				<p id="secreto">¡¡SORPRESA!!</p>
+			</div>
+
+		</div>
+
+		<h3>Uso de las pseudoclases Link con enlaces &lt;a&gt;</h3>
+		<p> Si utilizamos las pseudoclases Link para definir el comportamiento-estilo de los enlaces, debemos declarar las reglas en el orden adecuado:</p>
+		<ol>
+			<li>:link</li>
+			<li>:visited</li>
+			<li>:hover</li>
+			<li>:active</li>
+		</ol><br>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">CSS<br>
+<code>div#enlaces a:link {
+	text-decoration: none;
+	color: #333;
+}
+div#enlaces a:visited {
+	color: #777;
+}
+div#enlaces a:hover {
+	color: lightyellow;
+}
+div#enlaces a:active {
+	color: yellow;
+	font-weight: bold;
+}</code>
+			</div>
+
+			<div id="enlaces">RESULTADO <br><br>
+				<p>Enlace 1 <a href="http://www.google.es" target="_blank">Google</a></p>
+				<p>Enlace 2 <a href="http://www.w3schools.com" target="_blank">w3schools</a></p>
+				<p>Enlace 3 <a href="http://www.wikipedia.org" target="_blank">Wikipedia</a></p>
+				<p>Enlace 4 <a href="#">Aquí</a></p>
+			</div>
+
+		</div>
+		<p class="csspre">	Nota: si quieres "desvisitar" los enlaces tendrás que borrar los datos de navegación.</p>
+
+		<h3>:target</h3>
+		<p> Permite asignar un estilo a un elemento <strong>que sea destino de un enlace &lt;a&gt; dentro del mismo documento</strong>. El estilo se aplicará en el momento que <strong>pinchemos en el enlace</strong>.</p>
+		<p> Su sintáxis es un poco distinta a la normal ya que no va concatenada a un selector: <code>div > :target {}</code>, <code>.clase section > ul :target{}</code> ...</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="pstarget"&gt;
+	&lt;p id="prf1"&gt;Este párrafo contiene el ancla 1&lt;/p&gt;
+	&lt;p id="prf2"&gt;Este párrafo contiene el ancla 2&lt;/p&gt;
+	&lt;br&gt;&lt;br&gt;
+	&lt;a href="#prf1"&gt;Ir al ancla 1&lt;/a&gt;&lt;br&gt;
+	&lt;a href="#prf2"&gt;Ir al ancla 2&lt;/a&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#pstarget :target {
+	border: 1px solid #d4d4d4;
+	background-color: lightyellow;
+}</code>
+			</div>
+
+			<div id="pstarget">RESULTADO<br>
+				<p id="prf1">Este párrafo contiene el ancla 1</p>
+				<p id="prf2">Este párrafo contiene el ancla 2</p>
+				<br>
+				<br>
+				<a href="#prf1">Ir al ancla 1</a><br>
+				<a href="#prf2">Ir al ancla 2</a>
+			</div>
+
+		</div><br>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Pseudoclases "variadas"</h2>
+
+		<h3>:lang</h3>
+		<p>Esta pseudoclase permite alterar el estilo de elementos HTML en los que <strong>se haya declarado el atributo <code>lang</code></strong>.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="pslang"&gt;
+	&lt;p lang="es_ES"&gt;Esto es un bonito párrafo en español&lt;/p&gt;
+	&lt;p lang="en"&gt;This is a pretty paragraph in english&lt;/p&gt;
+	&lt;p&gt;Esto es un fárrafo en farfullo&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>div#pslang > p:lang(es_ES) {
+	color: red;
+}
+div#pslang > p:lang(en) {
+	color: blue;
+}</code>
+			</div>
+
+			<div id="pslang">RESULTADO <br>
+				<p lang="es_ES">Esto es un bonito párrafo en español</p>
+				<p lang="en">This is a pretty paragraph in english</p>
+				<p>Esto es un fárrafo en farfullo</p>
+			</div>
+		</div>
+
+		<h3>:empty</h3>
+		<p> Esta pseudoclase nos permite aplicar reglas de estilo a elementos HTML <strong>que no tengan hijos ni contenido definido</strong>.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="psempty"&gt;
+	&lt;div&gt;&lt;/div&gt;
+	&lt;div&gt;Hola&lt;/div&gt;
+	&lt;div&gt;&lt;p&gt;Mundo&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psempty div {
+	width: 60px;
+	height: 60px;
+	background-color: lightblue;
+	border: 1px solid blue;
+}
+#psempty div:empty {
+	background-color: blue;
+	border: 2px solid lightblue;
+}</code>
+			</div>
+
+			<div id="psempty">RESULTADO <br>
+				<div></div>
+				<div>Hola</div>
+				<div>
+					<p>Mundo</p>
+				</div>
+			</div>
+
+		</div>
+
+		<h3>:not(<em>selector</em>)</h3>
+		<p> Aplica un estilo a cualquier elemento que <strong>no sea del tipo indicado por <em>selector</em></strong>.</p>
+		<p> Su sintáxis varía del resto de pseudoclases porque en lugar de ser <code>selector:pseudoclase</code> es <code>:pseudoclase(selector)</code>.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="psnot"&gt;
+	&lt;span&gt;Un bonito span&lt;/span&gt;&lt;br&gt;
+	&lt;p&gt;Un párrafo normal&lt;/p&gt;
+	&lt;div&gt;Un simple div&lt;/div&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psnot :not(p) {
+	background-color: yellow;
+}</code>
+			</div>
+
+			<div id="psnot">RESULTADO<br><br>
+				<span>Un bonito span</span><br>
+				<p>Un párrafo normal</p>
+				<div>Un simple div</div>
+			</div>
+
+		</div>
+
+		<h3>:root</h3>
+		<p> Esta pseudoclase aplica un estilo al elemento raiz del documento que por tanto heredarán sus descendientes. En HTML el elemento es siempre &lt;input&gt;.</p>
+		<p> Esta característica hace que para su sintáxis no sea necesario escribir ningún selector: <code>:root {propiedad: valor; ...}</code></p>
+
+
+	</section>
+
+	<section class="cajagris">
+		<h2>Pseudoclases para formularios</h2>
+		<p>Son pseudoclases que se aplican normalmnete a elementos de formularios aunque algunas se pueden utilizar en otros elementos.</p>
+
+		<h3>:focus</h3>
+		<p> Altera el estilo de un <strong>campo de entrada &lt;input&gt;</strong> de un formulario cuando <strong>tiene el foco de atención</strong>, es decir, cuando se <strong>ha pinchado sobre él</strong> o <strong>accedido tabulando</strong>.</p>
+
+		<h3>:checked</h3>
+		<p> Permite alterar el estilo de elementos &lt;input&gt; del tipo <strong>radio buttons y checkboxes</strong>, y de elementos <strong>&lt;option&gt;</strong>.</p>
+
+		<h3>:disabled</h3>
+		<p> Se utiliza en reglas CSS para afectar a elementos con el atributo <code>disabled</code> activado. Normalmente este atributo se utiliza en elementos HTML de formulario.</p>
+
+		<h3>:enabled</h3>
+		<p> Con este selector podemos modificar el estilo de elementos <strong>que utilicen el atributo <code>disabled</code> pero no lo tengan activado</strong>.</p>
+
+		<h3>:in-range</h3>
+		<p> Permite aplicar estilo a elementos cuyo contenido sea <strong>un valor DENTRO de un rango</strong> declarado mediante los <strong>atributos <code>min</code> y <code>max</code></strong>.</p>
+
+		<h3>:out-of-range</h3>
+		<p> Permite aplicar estilo a elementos cuyo contenido sea <strong>un valor FUERA de un rango</strong> declarado mediante los <strong>atributos <code>min</code> y <code>max</code></strong>.</p>
+
+		<h3>:invalid</h3>
+		<p> Aplica un estilo a elementos cuyo contenido no sea valido para el tipo de elemento: valores fuera de un rango específico, texto en un campo para números, dirección e-mail no valida ...</p>
+		<p> Por la definición anterior <code>:out-of-range</code> es una "variante" más específica de <code>:invalid</code>.</p>
+
+		<h3>:valid</h3>
+		<p> Esta pseudoclase aplica un estilo a un &lt;input&gt; cuyo valor/contenido sea válido.</p>
+
+		<h3>:optional</h3>
+		<p> Altera el estilo de un campo de entrada &lt;input&gt; que <strong>no es obligatorio rellenar</strong>, es decir, que no utiliza el atributo <code>required</code>.</p>
+		<p> Todos los &lt;input&gt; son por defecto opcionales.</p>
+
+		<h3>:required</h3>
+		<p> Permite aplicar estilo a elementos campo de entrada que <strong>tienen declarado el atributo <code>required</code></strong>.</p>
+
+		<h3>:read-only</h3>
+		<p> Aplica estilo a elementos campo de entrada que <strong>tienen declarado el atributo <code>readonly</code></strong>.</p>
+
+
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Pseudoclases jerárquicas</h2>
+
+		<h3>:first-child</h3>
+		<p> Permite aplicar una regla a un elemento <strong>que sea el primer hijo de su elemento padre</strong>.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="psfchild"&gt;
+	&lt;p&gt;El primer p hijo&lt;/p&gt;
+	&lt;p&gt;El segundo p hijo&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psfchild p:first-child {
+	color: red;
+	font-weight: bold;
+}</code>
+			</div>
+
+			<div>RESULTADO <br>
+				<div id="psfchild">
+					<p>El primer p hijo</p>
+					<p>El segundo p hijo</p>
+				</div>
+			</div>
+
+		</div>
+		<p>Ser el primer hijo implica que:</p>
+		<ul>
+			<li>No puede tener ningún hermano que le preceda, aunque sea otro tipo de elemento HTML.</li>
+			<li>Tampoco puede haber ningún tipo de <strong>contenido</strong> antes.</li>
+		</ul><br>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">CSS<br>
+<code>div p:first-child {
+	color: red;
+}</code>
+			</div>
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;div&gt;&lt;/div&gt;
+	&lt;p&gt;¿Se aplicará estilo a este párrafo?&lt;/p&gt;
+&lt;/div&gt;</code>
+
+No se aplicará la regla a &lt;p&gt;
+			</div>
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	Esto es un div
+	&lt;p&gt;¿Se aplicará estilo a este párrafo?&lt;/p&gt;
+&lt;/div&gt;</code>
+
+No se aplicará la regla a &lt;p&gt;
+			</div>
+
+		</div><br>
+
+		<h3>:first-of-type</h3>
+		<p> Permite aplicar estilo a un elemento que sea el <strong>primer hijo de su tipo</strong> de un elemento padre.</p>
+		<p> Se diferencia de <code>:first-child</code> porque el elemento determinado en el selector puede tener hermanos anteriores a él <strong>siempre que no sean de su mismo tipo</strong>.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="psftype"&gt;
+	Esto es un div&lt;br&gt;
+	&lt;div&gt;&lt;/div&gt;
+	&lt;p&gt;¿Se aplicará estilo a este párrafo?&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psftype p:first-of-type {
+	color: red;
+}</code>
+			</div>
+
+			<div>RESULTADO<br><br>
+				<div id="psftype">
+					Esto es un div<br>
+					<div></div>
+					<p>¿Se aplicará estilo a este párrafo?</p>
+				</div>
+			</div>
+
+		</div>
+
+		<h3>:last-child</h3>
+		<p> El caso contrario de <code>:first-child</code>, aplica estilo a un elemento (indicado en el selector) que además es <strong>el último hijo de un elemento padre</strong>.</p>
+		<p> Después del elemento no puede haber ningún otro hermano ni contenido.</p>
+
+		<h3>:last-of-type</h3>
+		<p> Aplica un estilo a un elemento que sea el <strong>último hijo de su tipo</strong> de un elemento padre, el caso opuesto a <code>:first-of-type</code>.</p>
+
+		<h3>:nth-child(<em>n</em>)</h3>
+		<p> Permite aplicar un estilo a un elemento que sea <strong>el <em>n</em>-esimo hijo</strong> de un elemento padre.</p>
+		<p> El valor <em>n</em> puede ser:</p>
+		<ul>
+			<li>Un valor entero (1, 2, 3 ...)</li>
+			<li>El término <code>even</code> para indicar un grupo de elementos hijos pares</li>
+			<li>El término <code>odd</code> para indicar un grupo de elementos hijos impares</li>
+			<li>Una fórmula <code>(<em>A</em>n+<em>B</em>)</code> donde podemos dar valores a <em>A</em> y <em>B</em> y <code>n</code> es un contador (0,1,2...)</li>
+		</ul>
+		<p> Si utilizamos las últimas tres opciones podemos aplicar el mismo estilo <strong>a varios elementos del mismo tipo indicado en el selector</strong>.</p>
+		<p> Se comporta como <code>:first-child</code> y <code>:last-child</code> así que el contenido y otros elementos distintos del tipo del de el selector se tienen en cuenta a la hora de contar posiciones.</p>
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="psnchild"&gt;RESULTADO&lt;br&gt;
+	&lt;p&gt;Párrafo 1&lt;/p&gt;
+	&lt;p&gt;Párrafo 2&lt;/p&gt;
+	&lt;p&gt;Párrafo 3&lt;/p&gt;
+	&lt;p&gt;Párrafo 4&lt;/p&gt;
+	&lt;p&gt;Párrafo 5&lt;/p&gt;
+	&lt;p&gt;Párrafo 6&lt;/p&gt;
+	&lt;p&gt;Párrafo 7&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psnchild p:nth-child(even) {
+	color: green;
+}
+#psnchild p:nth-child(2n+1) {
+	background-color: lightblue;
+}</code>
+			</div>
+
+			<div id="psnchild">RESULTADO<br>
+				<p>Párrafo 1</p>
+				<p>Párrafo 2</p>
+				<p>Párrafo 3</p>
+				<p>Párrafo 4</p>
+				<p>Párrafo 5</p>
+				<p>Párrafo 6</p>
+				<p>Párrafo 7</p>
+			</div>
+
+		</div>
+		<p>Hay que tener en cuenta que en el código HTML <code>RESULTADO</code> que es contenido cuenta como un hijo de <code>&lt;div id="psnchild"&gt;</code>, por eso los párrafos númerados como pares para CSS son realmente impares.</p><br>
+
+		<h3>:nth-last-child(<em>n</em>)</h3>
+		<p> Se comporta de manera similar a <code>:nth-child()</code> salvo que empieza a contar desde el último hijo hasta el primero.</p>
+
+		<h3>:nth-of-type(<em>n</em>)</h3>
+		<p> Aplica estilos a un elemento que sea <strong><em>n</em>-esimo hijo</strong> pero a diferencia de <code>:nth-child</code> sólo tiene en cuenta los elementos que sean del mismo tipo.</p>
+		<p> Como en <code>:nth-child</code> podemos utilizar distintos valores para <em>n</em>: enteros, <code>even</code>, <code>odd</code> o una fórmula.
+		<div class="cajaejemplo cajacolumna tabulada">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div id="psntype"&gt;RESULTADO&lt;br&gt;
+	&lt;p&gt;Párrafo 1&lt;/p&gt;
+	&lt;span&gt;Span 1&lt;/p&gt;&lt;br&gt;
+	&lt;p&gt;Párrafo 2&lt;/p&gt;
+	&lt;div&gt;Div 1&lt;/div&gt;
+	&lt;span&gt;Span 2&lt;/p&gt;&lt;br&gt;
+	&lt;p&gt;Párrafo 3&lt;/p&gt;
+	&lt;p&gt;Párrafo 4&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psntype p:nth-of-type(even) {
+color: red;
+}</code>
+			</div>
+
+			<div id="psntype">RESULTADO<br>
+				<p>Párrafo 1</p>
+				<span>Span 1</span><br>
+				<p>Párrafo 2</p>
+				<div>Div 1</div>
+				<span>Span 2</span><br>
+				<p>Párrafo 3</p>
+				<p>Párrafo 4</p>
+			</div>
+
+		</div>
+
+		<h3>:nth-last-of-type</h3>
+		<p> Como <code>:nth-of-type</code> pero empezando a contar desde el último hijo hasta el primero.</p>
+
+		<h3>:only-child</h3>
+		<p> Con esta pseudoclase podemos aplicar estilos a elementos que son <strong>hijos únicos de un padre</strong>, que no tienen ningún tipo de hermano, ni siquiera de un tipo distinto incluido contenido del padre.</p>
+
+		<h3>:only-of-type</h3>
+		<p> Permite aplicar estilo a elementos que son <strong>hijos únicos de su tipo</strong>, es decir, que no tienen hermanos de su mismo tipo definido en el selector pero si pueden tener hermanos de otros tipos.</p>
+	</section>
+	<br><br><br><br>
+
+	<footer>
+		<a href="index.html">Home</a>
+	</footer>
+</body>
+</html>

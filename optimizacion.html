@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<!-- Documento generado por Pablo Garrido (22/04/2016)
+Este archivo HTML debe ser enlazado desde index.html -->
+
+<html lang="es">
+<head>
+	<title>Optimización</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Pablo Garrido">
+	<meta name="description" content="Ejemplos de optimización en CSS">
+	<meta name="keywords" content="shorthand, agrupar, omitir, cero, unidades">
+	<link rel="stylesheet" href="css/estilos.css" type="text/css">
+	<!-- CSS con ejemplos prácticos de optimización -->
+	<link rel="stylesheet" href="css/estilo_opt.css" type="text/css">
+</head>
+
+<body>
+	<header>
+		<h1>EJEMPLOS DE OPTIMIZACIÓN EN CSS</h1>
+	</header>
+	<section>
+		<p>Los archivos utilizados en este tema son:</p>
+		<ul>
+			<li>HTML: <code>optimizacion.html</code></li>
+			<li>CSS: <code>css/estilos.css</code></li>
+			<li>CSS: <code>css/estilo_opt.css</code></li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Terminología CSS</h2>
+		<p>Antes de comenzar con la optimización hay que introducir algunos conceptos.</p>
+		<p>Cuando queremos asignar uno o varios estilos a un elemento HTML lo que hacemos es asignarle una <strong>regla css</strong>.</p>
+		<p>Dicha regla se compone de:</p>
+		<ul>
+			<li>Un <strong>selector</strong> que indica a que elemento o elementos se les va a aplicar estilo.</li>
+			<li>Dentro del selector, entre llaves, se indican los cambios estéticos que se van aplicar, separados por ";". Dichos cambios se denominan <strong>declaraciones</strong>.</li>
+		</ul>
+		<p>A su vez una declaración se forma con:</p>
+		<ul>
+			<li>Una <strong>propiedad</strong> que indica que aspecto estético vamos a cambiar: texto, posición, bordes...</li>
+			<li>El <strong>valor</strong> de la propiedad</li>
+		</ul>
+		<div class="cajaejemplo">
+			<p>Regla CSS</p>
+			<p class="csspre">
+	<strong>selector</strong> {
+		<strong>propiedad</strong>: <strong>valor</strong>; -><strong>declaración</strong>
+		<strong>propiedad</strong>: <strong>valor</strong>; -><strong>declaración</strong>
+		...
+	}
+			</p>
+		</div>
+		<div class="cajaejemplo">
+			<p>Ejemplo de regla CSS</p>
+			<code class="csspre">
+	<strong>.claseejemplo</strong> {
+		<strong>border</strong>: <strong>1px 2px 1px 2px solid yellow</strong>;
+		<strong>font-family</strong>: <strong>verdana</strong>;
+		...
+	}
+			</code>
+		</div>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Abreviaturas (shorthand)</h2>
+		<p>Una forma de optimización de código es utilizar abreviaturas para las <strong>propiedades</strong>.</p>
+		<p>En algunos casos un conjunto de propiedades similares se pueden resumir en una sola denominada <strong>propiedad shorthand</strong> que recogerá los <strong>valores</strong> de las otras.</p>
+		<p>Un ejemplo:</p>
+		<div class="cajaejemplo">
+			<p>Esta regla</p>
+			<code class="csspre">
+	p {
+		font-style: italic;
+		font-weight: bold;
+		font-size: 1.3em;
+		font-family: Sans-serif;
+	}
+			</code>
+		</div>
+		<div class="cajaejemplo">
+			<p>Es igual que esta otra abreviada</p>
+			<code class="csspre">
+	p {
+		font: italic bold 1.3em Sans-serif;
+	}
+			</code>
+		</div>
+		<p>Las propiedades shorthand son: <strong>font</strong>, <strong>margin</strong>, <strong>padding</strong>, <strong>border</strong>, <strong>background</strong> y <strong>list-style</strong>.</p><br>
+	</section>
+
+	<section class="cajagris">
+		<h2>Agrupar reglas</h2>
+		<p>Si utilizamos las mismas <strong>declaraciones</strong> para distintos <strong>selectores</strong> podemos simplificar las distintas reglas en una sola cuyo selector se formará con los originales separados por comas.</p>
+		<p>Un ejemplo:</p>
+		<div class="cajaejemplo">
+			<p>Distintas reglas que utilizan las mismas declaraciones</p>
+			<code class="csspre">
+	p {
+		font-weight: bold;
+		font-size: 1.3em;
+		line-height: 0.5em;
+		margin: 2px 10px 2px 10px;
+	}
+	.parrafo {
+		font-weight: bold;
+		font-size: 1.3em;
+		line-height: 0.5em;
+		margin: 0px 10px 0px 10px;
+	}
+	#texto {
+		font-weight: bold;
+		font-size: 1.3em;
+		line-height: 0.5em;
+		margin: 0px 10px 0px 10px;
+	}
+			</code>
+		</div>
+		<div class="cajaejemplo">
+			<p>El siguiente código cumple la misma función pero agrupando reglas (y usando propiedades shorthand)</p>
+			<code class="csspre">
+	p, .parrafo, #texto {
+		font: bold 1.3em;
+		line-height: 0.5em;
+		margin: 2px 10px 2px 10px;
+	}
+			</code>
+		</div><br>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Simplificar valores: ceros, unidades, valor por defecto y colores HEX</h2>
+		<p>Hay casos en que la información de los <strong>valores</strong> es redundante o se puede simplificar</p>
+		<h3>Ceros en notación decimal</h3>
+		<p>El código <code>line-height: 0.5em;</code> es igual que <code>line-height: .5em;</code>.</p>
+		<h3>Para valores 0 no es necesario especificar unidades</h3>
+		<p>El código <code>margin: 0px 10px 0px 10px;</code> es igual que <code>margin: 0 10px 0 10px;</code>.</p>
+		<h3>El declarar una propiedad con su valor defecto</h3>
+		<p>Las propiedades tienen un valor por defecto que se aplicarán aunque no se haya definido una regla para aplicarlas.</p>
+		<p>Por eso, si no se ha cambiado dicho valor (ojo con las herencias), no tiene sentido volver declararlos</p>
+		<p>Un ejemplo</p>
+		<div class="cajaejemplo">
+			<p>La siguiente regla de párrafo aplica declaraciones con valores que &lt;p&gt; ya tiene por defecto </p>
+			<code class="csspre">
+	p {
+		height: auto;
+		width: auto;
+		color: inherit;
+		text-align: left;
+		display: block;
+	}
+			</code>
+		</div>
+		<h3>Simplificar expresiones hexadecimales de color</h3>
+		<p>El <strong>valor</strong> de cualquier propiedad color se puede expresar en formato RGB de dos formas</p>
+		<ul>
+			<li>Por notación directa: <code>color: html(18, 161, 95);</code></li>
+			<li>Por notación hexadecimal: <code>color: #12a15f;</code></li>
+		</ul>
+		<p>En el ejemplo anterior:</p>
+		<ul>
+			<li>El valor de componente rojo (<strong>R</strong>ed)es 18 en decimal y 12 en hexadecimal (#<strong>12</strong>a15f)</li>
+			<li>El valor de componente verde (<strong>G</strong>een) es 161 en decimal y a1 en hexadecimal (#12<strong>a1</strong>5f)</li>
+			<li>El valor de componente azul (<strong>B</strong>lue) es 95 en decimal y 5f en hexadecimal (#12a1<strong>5f</strong>)</li>
+		</ul>
+		<p>Si <strong>cada una</strong> de las componentes en hexadecimal de un color se expresan con dos dígitos iguales (p. ej. #33ff22) podemos <strong>simplificar su sintaxis eleminando un dígito de cada par</strong></p>
+		<p>Así #33ff22 quedaría #3f2.</p>
+		<br>
+	</section>
+
+	<section class="cajagris">
+		<h2>Eliminar reglas no utilizadas</h2>
+		<p>Durante el desarrollo es posible que se creen reglas de estilo que luego no se utilicen en ningún punto del código HTML.</p>
+		<p>Una opción es revisar "a mano" todo el código, algo que puede ser una locura.</p>
+		<p>Por eso hay herramientas on-line o complementos para navegadores que simplifican/automatizan esta labor:</p>
+		<ul>
+			<li><a href="https://unused-css.com" target="_blank">Unused CSS</a>: de pago aunque con opción de prueba gratuita. <strong>Requiere de una WEB funcional para revisar el CSS</strong></li><br>
+			<li><a href="https://github.com/changer/grunt-cssrazor" target="_blank">Grunt-CSSrazor</a>: es un pluggin para Grunt</li><br>
+			<li><a href="https://github.com/giakki/uncss" target="_blank">UnCSS</a>: requiere NodeJS aunque se puede utilizar también con Grunt</li><br>
+			<li><a href="https://addons.mozilla.org/es/firefox/addon/dust-me-selectors/" target="_blank">Dust-Me Selector</a>: es un complemento para <strong>Firefox</strong></li><br>
+			<li><a href="https://addons.mozilla.org/es/firefox/addon/css-usage/" target="_blank">CSS Usage</a>: es un complemento de <strong>Firefox</strong> y requiere tener también <strong>Firebug</strong></li><br>
+		</ul>
+		<p>Prueba a utilizar alguno de los complementos de Firefox para encontrar reglas no utilizadas en este documento.</p><br>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Simplificar valores para top, right, bottom y left</h2>
+		<p>Hay propiedades <strong>shorthand</strong> en las que se puede asignar valores vinculados a las posiciones top (superior), right (derecha), bottom (inferior) y left (izquierda).</p>
+		<p>Si todos los valores son distintos no podremos simplificarlos:</p>
+		<code class="csspre">	<strong>margin: 2px 3px 5px 6px</strong></code><span> -> top: 2px, right: 3px, bottom: 5px y left: 6px</span>
+		<p>Si los valores left y right son iguales podemos simplificar a 3 valores:</p>
+		<code class="csspre">	<strong>margin: 2px 3px 6px</strong></code><span> -> top: 2px, right: 3px, bottom: 5px y left: 3px</span>
+		<p>Y si además también son iguales top y bottom, reducimos a 2 valores</p>
+		<code class="csspre">	<strong>margin: 6px 3px</strong></code><span> -> top: 6px, right: 3px, bottom: 6px y left: 3px</span><br><br>
+	</section>
+
+	<section class="cajagris">
+		<h2>Prefijos de navegador</h2>
+		<p>Existen propiedades de CSS que no son compatibles <strong>por defecto</strong> en todos los navegadores aunque si están soportadas (se pueden usar de alguna forma).</p>
+		<p>En esos casos hay que <strong>repetir</strong> la declaración de añadiendo un prefijo del navegador (<strong>vendor prefixes</strong>) que queramos que la utilice.</p>
+		<p>Hay que repetir la declaración con prefijo para cada navegador que no sea compatible.</p>
+		<p>Por supuesto que es posible que versiones viejas de los navegadores no sólo no son compatibles sino que ni siquiera soportan la propiedad.</p>
+		<p>Los prefijos:</p>
+		<ul>
+			<li><code>-webkit-</code> para Chrome y Safari</li>
+			<li><code>-moz-</code> para Firefox (de Mozilla)</li>
+			<li><code>-o-</code> para Opera</li>
+			<li><code>-ms-</code> para Internet Explorer (de Microsoft)</li>
+		</ul>
+		<p>Un ejemplo con la propiedad <code>border-radius</code>:</p>
+		<div class="cajaejemplo"><code class="csspre">		.selector {
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			-ms-border-radius: 10px;
+			-o-border-radius: 10px;
+			border-radius: 10px;
+		}</code>
+		</div>
+	</section>
+
+	<br><br><br><br>
+
+	<footer>
+		<a href="index.html">Home</a>
+	</footer>
+</body>
+</html>

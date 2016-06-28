@@ -1,0 +1,58 @@
+/* Se utiliza el id importante para aplicar el CSS sólo en el ejemplo y no toda la página */
+#importante p {
+	font-family: arial;
+	color: blue;
+}
+#importante p {
+	font-family: monospace;
+	color: red;
+}
+
+#importante2 p {
+	font-family: arial;
+	color: blue !important;
+}
+#importante2 p {
+	font-family: monospace;
+	color: red;
+}
+
+#piramide {
+	margin: 10px auto;
+	width: 80%;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#piramide > div {
+	border: 1px solid black;
+	text-align: center;
+	height: 30px;
+	padding: 10px 0 5px 0;
+}
+#o1 {
+	background-color: red;
+	width: 40%;
+	font-weight: bold;
+}
+#o2 {
+	background-color: lightblue;
+	width: 45%;
+	font-weight: bold;
+}
+#o3 {
+	background-color: green;
+	width: 50%;
+	font-weight: bold;
+}
+#o4 {
+	background-color: orange;
+	width: 55%;
+	font-weight: bold;
+}
+#o5 {
+	background-color: yellow;
+	width: 60%;
+	font-weight: bold;
+}

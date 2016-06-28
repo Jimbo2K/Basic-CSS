@@ -1,0 +1,72 @@
+/*Hoja de estilos para ejemplos de pseudoclass.html*/
+
+a.pslink:link {
+	color: red;
+}
+a.psvisited:visited {
+	color: green;
+}
+p.pshover:hover {
+	color: yellow;
+}
+#secreto {
+	color: red;
+	background-color: red;
+}
+p#secreto:active {
+	background-color: #ccc;
+}
+div#enlaces a:link {
+	text-decoration: none;
+	color: #333;
+}
+div#enlaces a:visited {
+	color: #777;
+}
+div#enlaces a:hover {
+	color: lightyellow;
+	font-weight: normal;
+}
+div#enlaces a:active {
+	color: yellow;
+	font-weight: bold;
+}
+div#pslang > p:lang(es_ES) {
+	color: red;
+}
+div#pslang > p:lang(en) {
+	color: blue;
+}
+#psempty div {
+	width: 80px;
+	height: 80px;
+	background-color: lightblue;
+	border: 1px solid blue;
+	margin: 10px;
+}
+#psempty div:empty {
+	background-color: blue;
+	border: 2px solid red;
+}
+div#psfchild p:first-child {
+	color: red;
+}
+#psftype p:first-of-type {
+	color: red;
+}
+#psnot :not(p) {
+	background-color: yellow;
+}
+#psnchild p:nth-child(even) {
+	color: green;
+}
+#psnchild p:nth-child(2n+1) {
+	background-color: lightblue;
+}
+#psntype p:nth-of-type(even) {
+color: red;
+}
+#pstarget :target {
+	border: 1px solid #d4d4d4;
+	background-color: lightyellow;
+}

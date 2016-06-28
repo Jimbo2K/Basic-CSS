@@ -1,0 +1,13 @@
+/*Hoja de estilos ALTERNATIVA
+Esta hoja de estilo se puede elegir como opción del navegador (sólo en Firefox), machacando las reglas que coincidan con la de la hoja PERMANENTE (css/estilos.css) */
+.parrafo {
+	font-family: verdana, sans-serif;
+	font-size: 1.3em;
+	color: green;
+	font-style: italic;
+}
+.cajarena {
+	margin: 20px auto;
+	border: 4px solid green;
+	background-color: #aaa;
+}

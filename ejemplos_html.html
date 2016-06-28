@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<!-- Documento generado por Pablo Garrido (11/04/2016)
+Este archivo HTML debe ser enlazado desde index.html -->
+
+<html lang="es">
+<head>
+	<title>Estilo y etiquetas</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Pablo Garrido">
+	<meta name="description" content="Ejemplos de estilo predefino según etiquetas HTML">
+	<meta name="keywords" content="HTML, abbr, acronym, b, big, cite, code, del, dfn, em, i, ins, kbd, q, samp, small, strong, u, mark, sub, sup, tt, var, span, h">
+	<!-- Hoja de estilos propia del ejercicio -->
+	<link rel="stylesheet" href="css/estilos1.css">
+</head>
+<body>
+	<header>
+		<h1>EJEMPLOS DE TEXTO CON ESTILO PREDEFINIDO SEGÚN LA ETIQUETA QUE LO CONTIENE</h1>
+	</header>
+	<div>
+		<p>Los archivos utilizados en este tema son:</p>
+		<ul>
+			<li>HTML: <code>ejemplos_html.html</code></li>
+			<li>CSS: <code>css/estilos1.css</code></li>
+		</ul>
+	</div>
+	<section tabindex="1" accesskey="y">
+		<h2>Para etiquetas soportadas en HTML5</h2><br>
+
+		<div class="cajagris" tabindex="2">
+			<h3>&lt;abbr&gt;</h3>
+			<ul>
+				<li>Original: Dr.</li>
+				<li>Etiquetado: <abbr title="Doctor">Dr.</abbr></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="3" id="etiquetab">
+			<h3>&lt;b&gt;</h3>
+			<p>Aunque soportada por HTML5 el W3C no recomienda su uso y lo penaliza en la validación de código</p>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet.</li>
+				<li>Etiquetado: <b>Lorem ipsum dolor sit amet.</b></li>
+			</ul>
+			<p><small>Ver también la etiqueta <a href="#etiquetastrong" title="Ver etiqueta &lt;strong&gt;">&lt;strong&gt;</a></small></p>
+		</div>
+
+		<div class="cajagris" tabindex="4">
+			<h3>&lt;cite&gt;</h3>
+			<ul>
+				<li>Original:<br> Según Juan Palomo: "Yo me lo guiso, yo me lo como"</li>
+				<li>Etiquetado:<br> Según <cite>Juan Palomo:</cite> "Yo me lo guiso, yo me lo como"</li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="5">
+			<h3>&lt;code&gt;</h3>
+			<ul>
+				<li>Original:<br>if valido { ventana("Todo correcto")}</li>
+				<li>Etiquetado:<br><code>if valido { ventana("Todo correcto")}</code></li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="6">
+			<h3>&lt;del&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, labore.</li>
+				<li>Etiquetado: <del>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, pariatur.</del></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="7">
+			<h3>&lt;dfn&gt;</h3>
+			<ul>
+				<li>Original: El WAI es el organismo encargado de definir los estándares de accesibilidad en web</li>
+				<li>Etiquetado: El <dfn title="Web Accessibility Initiative">WAI</dfn> es el organismo encargado de definir los estándares de accesibilidad en WEB</li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="8" id="etiquetaem">
+			<h3>&lt;em&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, labore.</li>
+				<li>Etiquetado: <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, pariatur.</em></li>
+			</ul>
+			<p><small>Ver también la etiqueta <a href="#etiquetai" title="Ver etiqueta &lt;i&gt;">&lt;i&gt;</a></small></p>
+		</div>
+
+		<div class="cajaamarilla" tabindex="9" id="etiquetai">
+			<h3>&lt;i&gt;</h3>
+			<p>Aunque soportada por HTML5 el W3C no recomienda su uso y lo penaliza en la validación de código</p>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, labore.</li>
+				<li>Etiquetado: <i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, labore.</i></li>
+			</ul>
+			<p><small>Ver también la etiqueta <a href="#etiquetaem" title="Ver etiqueta &lt;em&gt;">&lt;em&gt;</a></small></p>
+		</div>
+
+		<div class="cajagris" tabindex="10" id="etiquetains">
+			<h3>&lt;ins&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, labore.</li>
+				<li>Etiquetado: <ins>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, pariatur.</ins></li>
+			</ul>
+			<p><small>Aunque similar no hay que confundir &lt;ins&gt; con <a href="#etiquetau" title="Ver etiqueta &lt;u&gt;">&lt;u&gt;</a></small></p>
+		</div>
+
+		<div class="cajaamarilla" tabindex="11">
+			<h3>&lt;kbd&gt;</h3>
+			<ul>
+				<li>Original: Selecciona un texto y para copiar pulsa Ctrl+c</li>
+				<li>Etiquetado: Selecciona un texto y para copiar pulsa <kbd>Ctrl+c</kbd></li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="12">
+			<h3>&lt;q&gt;</h3>
+			<ul>
+				<li>Original:<br> Roy Batty dice: Yo... he visto cosas que vosotros no creeríais.</li>
+				<li>Etiquetado:<br> Roy Batty dice: <q>Yo... he visto cosas que vosotros no creeríais.</q></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="13">
+			<h3>&lt;samp&gt;</h3>
+			<ul>
+				<li>Original:<br> La ejecución de la función debe dar como resultado: Hola mundo!</li>
+				<li>Etiquetado:<br> La ejecución de la función debe dar como resultado: <samp>Hola mundo!</samp></li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="14">
+			<h3>&lt;small&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, placeat?</li>
+				<li>Etiquetado:<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, esse.</small></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="15" id="etiquetastrong">
+			<h3>&lt;strong&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, placeat?</li>
+				<li>Etiquetado:<strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, esse.</strong></li>
+			</ul>
+			<p><small>Ver también la etiqueta <a href="#etiquetab" title="Ver etiqueta &lt;b&gt;">&lt;b&gt;</a></small></p>
+		</div>
+
+		<div class="cajagris" tabindex="16" id="etiquetau">
+			<h3>&lt;u&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, placeat?</li>
+				<li>Etiquetado:<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, esse.</small></li>
+			</ul>
+			<p><small>Aunque similar no hay que confundir &lt;u&gt; con <a href="#etiquetains" title="Ver etiqueta &lt;ins&gt;">&lt;ins&gt;</a></small></p>
+		</div>
+
+		<div class="cajaamarilla" tabindex="17">
+			<h3>&lt;var&gt;</h3>
+			<ul>
+				<li>Original: La varibale valido es de tipo booleana</li>
+				<li>Etiquetado: La varibale <var>valido</var> es de tipo booleana</li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="18">
+			<h3>&lt;mark&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, placeat?</li>
+				<li>Etiquetado:<mark>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, esse.</mark></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="19">
+			<h3>&lt;sub&gt;</h3>
+			<ul>
+				<li>Original: No es lo mismo beber H2O que H2SO4</li>
+				<li>Etiquetado: No es lo mismo beber H<sub>2</sub>O que H<sub>2</sub>SO<sub>4</sub></li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="20">
+			<h3>&lt;sup&gt;</h3>
+			<ul>
+				<li>Original: Según <cite>Einstein</cite> E=mc2</li>
+				<li>Etiquetado: Según <cite>Einstein</cite> E=mc<sup>2</sup></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="21">
+			<h3>&lt;span&gt;</h3>
+			<p>No es propiamente una etiqueta con estilo predefinido pero permite introducir un estilo CSS a una selección concreta de texto dentro de un elemento, p.ej. un párrafo</p>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sequi mollitia earum, molestiae, soluta quae beatae obcaecati ut qui debitis optio quos in harum minus ratione, natus laboriosam velit laudantium.</li>
+				<li>Etiquetado: Lorem ipsum dolor sit amet, consectetur <span class="rojo">adipisicing elit. Repudiandae sequi, eaque, at similique architecto</span> quas animi est quasi, adipisci, pariatur ad! Quo explicabo deserunt, minus voluptatum fugiat iure reprehenderit amet.</li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="22">
+			<h3>Encabezados &lt;h&gt;</h3>
+			<ul>
+				<li><h1>Encabezado h1</h1></li>
+				<li><h2>Encabezado h2</h2></li>
+				<li><h3>Encabezado h3</h3></li>
+				<li><h4>Encabezado h4</h4></li>
+				<li><h5>Encabezado h5</h5></li>
+				<li><h6>Encabezado h6</h6></li>
+			</ul>
+		</div>
+
+	</section><br>
+
+	<section tabindex="23" accesskey="n">
+		<h2>Para etiquetas <strong>no</strong> soportadas en HTML5</h2>
+		<p>Sin embargo los navegadores si son capaces de interpretarlas</p><br>
+
+		<div class="cajagris" tabindex="24">
+			<h3>&lt;acronym&gt;</h3>
+			<ul>
+				<li>Original: EPROM</li>
+				<li>Etiquetado: <acronym title="Erasable Programmable Read Only Memory">EPROM</acronym></li>
+			</ul>
+		</div>
+
+		<div class="cajaamarilla" tabindex="25">
+			<h3>&lt;big&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet.</li>
+				<li>Etiquetado: <big>Lorem ipsum dolor sit amet.</big></li>
+			</ul>
+		</div>
+
+		<div class="cajagris" tabindex="26">
+			<h3>&lt;tt&gt;</h3>
+			<ul>
+				<li>Original: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, consequatur.</li>
+				<li>Etiquetado: <tt>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, dolore.</tt></li>
+			</ul>
+		</div>
+
+	</section><br>
+	<br>
+	<br>
+	<footer>
+		<a href="index.html">Home</a>
+	</footer>
+</body>
+</html>

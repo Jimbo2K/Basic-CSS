@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<!-- Documento generado por Pablo Garrido (21/04/2016)
+Este archivo HTML debe ser enlazado desde index.html -->
+
+<html lang="es">
+<head>
+	<title>Vinculación de estilos</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Pablo Garrido">
+	<meta name="description" content="Ejemplos de vinculación de estilos CSS">
+	<meta name="keywords" content="CSS, incrustados, enlazados, persistent, preferred, alternate, import, inline">
+
+	<!-- Ejemplo de estilo CSS INCRUSTADO
+	Las reglas CSS (Selector + declaraciones) se deben escribir como contenido de la etiqueta <style> -->
+	<style>
+		#incrustado {
+			border: 2px solid red;
+			background-color: black;
+			color: white;
+			font-style: italic;
+			padding: 5px;
+			width: 75%;
+			margin: auto;
+		}
+	</style>
+
+	<!-- 	Vinculación a una hoja de estilos PERMANENTE o PERSISTENT -->
+	<link rel="stylesheet" href="css/estilos.css" type="text/css">
+
+	<!-- Vinculación a una hoja de estilos PREFERENTE o PREFERRED
+	Se distingue de la anterior por integrar obligatoriamente el atributo title
+	ES LA HOJA CSS QUE UTILIZAN LOS NAVEGADORES POR DEFECTO (siempre que esté disponible)-->
+	<link rel="stylesheet" href="css/estilo_preferred.css" title="Preferente" type="text/css">
+
+	<!-- Vinculación a una hoja de estilos ALTERNATIVA o ALTERNATE
+	Además de usar un title para identificarla, hay que añadir "alternate" al valor de rel -->
+	<link rel="alternate stylesheet" href="css/estilo_alt1.css" title="Alternativa1" type="text/css">
+</head>
+
+<body>
+	<header>
+		<h1>EJEMPLOS DE VINCULACIÓN DE ESTILOS CSS</h1>
+	</header>
+	<section>
+		<p>Los archivos utilizados en este tema son:</p>
+		<ul>
+			<li>HTML: <code>vinculos_css.html</code></li>
+			<li>CSS: <code>css/estilos.css</code></li>
+			<li>CSS: <code>css/estilo_preferred.css</code></li>
+			<li>CSS: <code>css/estilos_alt1.css</code></li>
+		</ul>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Estilo incrustado en el código HTML</h2>
+		<p>A continuación se muestran dos &lt;div&gt; uno sin estilo y debajo con estilo que se ha declarado en &lt;head&gt; como contenido de &lt;style&gt;</p>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque cum ea voluptas cupiditate magni excepturi, ab, ut ipsam laudantium ad ipsum necessitatibus in quo minus quod sapiente quas rerum error aut impedit id mollitia illum voluptatum. Consequuntur at nisi minus.</div><br>
+			<div id="incrustado">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque cum ea voluptas cupiditate magni excepturi, ab, ut ipsam laudantium ad ipsum necessitatibus in quo minus quod sapiente quas rerum error aut impedit id mollitia illum voluptatum. Consequuntur at nisi minus.</div>
+	</section>
+
+	<section class="cajagris">
+		<h2>Estilos CSS enlazados</h2>
+		<p>IMPORTANTE: para probar este apartado es necesario utilizar Firefox o Internet Explorer ya que permiten escoger hojas de estilo alternativas</p>
+		<p>La siguiente imagen muestra como escoger estilos preferentes y alternativos en Firefox:</p>
+		<img  class="centrar" src="img/firefox.png" alt="Como escoger hojas de estilo alternativas en Firefox" width="530" height="200">
+		<p>Observa el contenido de la siguiente caja e interactúa con él cambiando los estilos. Los códigos de colores de más abajo te ayudarán a entender qué CSS y sobre qué esta actuando.</p>
+		<div class="cajarena">
+				<p>Un bonito párrafo</p>
+				<p class="parrafop">Otro bonito párrafo con la clase <code>.parrafop</code> definida en <code>css/estilos.css</code></p>
+				<p class="parrafo">Y otro párrafo más, esta vez con la clase <code>.parrafo</code> definida en <code>css/estilos.css</code>,<code>css/estilo_preferred.css</code> y en <code>css/estilo_alt1</code></p>
+		</div>
+		<ul>
+			<p>Código de colores:</p>
+			<li><strong>NEGRO</strong> corresponde a elementos del estilo PERMANENTE pero con valores por defecto (salvo el tipo y tamaño de letra que lo han heredado de la regla para el selector <code>body</code>)</li>
+			<!-- Estilo CSS aplicado INLINE -->
+			<li><strong style="color: blue;">AZUL</strong> corresponde a elementos del estilo PERMANENTE definidos con reglas en su archivo CSS</li>
+			<!-- Estilo CSS aplicado INLINE -->
+			<li><strong style="color: red;">ROJO</strong> corresponde a elementos del estilo PREFERENTE definidos con reglas en su archivo CSS</li>
+			<!-- Estilo CSS aplicado INLINE -->
+			<li><strong style="color: green;">VERDE</strong> corresponde a elementos del estilo ALTERNATIVO definidos con reglas en su archivo CSS</li>
+		</ul>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Estilos en linea</h2>
+		<p>Permiten aplicar un estilo CSS a un elemento HTML concreto utilizando el atributo <code>style</code>.</p>
+		<p>El uso de esta vinculación está desaconsejado por hacer más difícil entender el código HTML e implica una mala optimización de la web.</p>
+		<p>un ejemplo, el código utilizado para dar estilo al siguiente &lt;div&gt;:</p>
+		<div  style="color: blue; font-size: 1.3em; background-color: #eee; border: 1px solid black;">
+			<code class="csspre">
+	&lt;div class="csspre" <strong>style="color: blue; font-size: 1.3em; background-color: #eee; border: 1px solid black;"</strong>&gt;
+			</code>
+		</div>
+	</section>
+
+	<section class="cajagris">
+		<h2>Estilos importados</h2>
+		<p>Utilizando <code>@import</code> podemos vincular una hoja de estilo externa desde la etiqueta &lt;style&gt; o desde otra hoja de estilo externa.</p>
+		<p>La única condición que se ha de cumplir para que funcione es que no haya ninguna regla de estilo por encima de la línea de <code>@import</code>.</p>
+		<p>Ejemplo de uso:</p>
+		<div class="cajaejemplo">
+			<code class="csspre">
+			&lt;style&gt;
+				@import url("<em>dirección url</em>") <em>medio1</em>, <em>medio2</em>, ... <em>medioX</em>;
+
+				<em>selector</em> {
+					<em>propiedad</em>: <em>valor</em>;
+					...
+				}
+				...
+			&lt;/style&gt;
+			</code>
+			<p><em>medioX</em> hace referencia al medio al que se va a aplicar el estilo importado: impresión (<code>print</code>), proyector (<code>projection</code>), televisión (<code>tv</code>)</p>
+		</div>
+		<p>El uso de esta técnica <strong>no es recomendable</strong>. Una razón es porque ralentiza la carga de la página al realizar varias peticiones al servidor. Es preferible utilizar &lt;link&gt;. </p>
+	</section>
+
+	<br><br><br><br>
+
+	<footer>
+		<a href="index.html">Home</a>
+	</footer>
+</body>
+</html>

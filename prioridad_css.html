@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Prioridad de estilos</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Pablo Garrido Roa">
+	<meta name="description" content="Determinar la prioridad de las reglas de estilo css según dónde y cómo se declaren">
+	<meta name="keywords" content="important, inline, instyle, link, clas, id">
+	<!-- Hoja de estilos principal -->
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/prioridad.css">
+</head>
+<body>
+	<header>
+		<h1>PRIORIDAD DE ESTILOS</h1>
+	</header>
+
+	<section class="cajaamarilla">
+		<h2>!important</h2>
+		<p>Dentro del código CSS, en caso de conflicto entre dos reglas o declaraciones, la última escrita es la que tiene prioridad.</p>
+		<div class="cajaejemplo cajacolumna" id="importante">
+			<div class="csspre">HTML<br>
+<code>&lt;p&gt;Un párrafo&lt;/p&gt;
+&lt;p&gt;Otro párrafo&lt;p&gt;</code>
+			</div>
+			<div class="csspre">CSS<br><code>p {
+	font-family: arial;
+	color: blue;
+}
+p {
+	font-family: monospace;
+	color: red;
+}</code>
+			</div>
+			<div>
+				<p class="churro">Un párrafo</p>
+				<p>Otro párrafo</p>
+			</div>
+		</div>
+		<p>Sin embargo podemos alterar este comportamiento utilizando el indicador <code>!important</code> junto con el <strong>valor</strong> de una <strong>declaración</strong> para establecerla como prioritaria aunque otra regla posterior debiera anularla.</p>
+		<p>La sintaxis sería la siguiente: <code>propiedad: valor <strong>!important</strong>;</code></p>
+		<p>Veamos como cambia el ejemplo anterior utilizando <code>!important</code></p>
+		<div class="cajaejemplo cajacolumna" id="importante2">
+
+			<div class="csspre">HTML<br>
+<code>&lt;p&gt;Un párrafo&lt;/p&gt;
+&lt;p&gt;Otro párrafo&lt;p&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br><code>p {
+	font-family: arial;
+	color: blue !important;
+}
+p {
+	font-family: monospace;
+	color: red;
+}</code>
+			</div>
+
+			<div>
+				<p class="churro">Un párrafo</p>
+				<p>Otro párrafo</p>
+			</div>
+
+		</div>
+		<p>Aunque la tipografía de la primera regla se ha "machacado" con la de la segunda, se mantiene el color de la primera.</p><br>
+	</section>
+
+	<section class="cajagris">
+		<h2>Orden de prioridad de estilos CSS</h2>
+		<p>La siguiente pirámide indica que estilo CSS se aplica por encima de otros:</p>
+		<div id="piramide">
+			<div id="o1">CSS del usuario (navegador) + <code>!important</code> </div>
+			<div id="o2">CSS declarado o vinculado en HTML + <code>!important</code></div>
+			<div id="o3">CSS declarado o vinculado en HTML</div>
+			<div id="o4">CSS del usuario (navegador)</div>
+			<div id="o5">CSS por defecto del navegador</div>
+		</div><br>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>Prioridad según la especifidad de las reglas CSS</h2>
+		<p>Se puede dar el caso de que varias reglas de estilo se apliquen sobre un mismo elemento entrando en conflicto sus declaraciones.</p>
+		<p>Para saber que regla se aplicará hay que compararlas según lo especificas que sean según los siguientes parámetros:</p>
+		<ol>
+			<li>Si se trata de un estilo en línea - La que más tenga, normalmente sólo una, es la que se aplica. En caso de empate se pasa al siguiente parámetro.</li>
+			<li>Cuantos id's contiene el selector de cada regla - la que más tenga se aplica. En caso de empate...</li>
+			<li>Cuantas clases contiene el selector de cada regla - la que más tenga se aplica. En caso de empate...</li>
+			<li>Cuantos elementos HTML contiene el selector de cada regla - la que más tenga se aplica. En caso de empate se aplica la última regla declrada (ver el primer ejemplo de la página).</li>
+		</ol>
+		<p>Un ejemplo para entenderlo:</p>
+		<div class="cajaejemplo cajacolumna">
+
+			<div class="csspre">HTML<br>
+<code>&lt;body&gt;
+	&lt;div id="contenedor"&gt;
+		&lt;header class="cabecera"&gt;
+		<strong>&lt;h1&gt;Encabezado&lt;/h1&gt;</strong>
+		&lt;/header&gt;
+	&lt;/div&gt;
+&lt;/body&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+/*Regla1*/
+<code>#contenedor header <strong>h1</strong> {
+	color: green;
+}
+/*Regla2*/
+#contenedor .cabecera <strong>h1</strong> {
+	color: red;
+}
+/*Regla3*/
+header <strong>h1</strong> {
+	color: blue;
+}</code>
+			</div>
+
+			<div class="csspre">COMPARACIÓN<br>
+Parámetro 1: R1=0 R2=0 R3=0 <br>
+Parámetro 2: R1=1 R2=1 R3=0, R3 descartada <br>
+Parámetro 3: R1=0 R2=1, R1 descartada <br><br>
+RESULTADO
+<h1 style="color: red;">Encabezado</h1>
+			</div>
+		</div><br>
+	</section>
+
+	<br><br><br><br>
+
+	<footer>
+		<a href="index.html">Home</a>
+	</footer>
+</body>

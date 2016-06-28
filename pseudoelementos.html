@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<!-- Documento generado por Pablo Garrido (30/04/2016)
+Este archivo HTML debe ser enlazado desde index.html -->
+
+<html lang="es">
+<head>
+	<title>Elementos y pseudoelementos</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Pablo Garrido">
+	<meta name="description" content="Uso de pseudoelementos en CSS">
+	<meta name="keywords" content="before, after, first-letter, first-line, selection">
+	<link rel="stylesheet" href="css/estilos.css" type="text/css">
+	<!-- CSS con ejemplos prácticos de optimización -->
+	<link rel="stylesheet" href="css/estilos_pselement.css" type="text/css">
+</head>
+
+<body>
+
+	<header>
+		<h1>ELEMENTOS Y PSEUDOELEMENTOS</h1>
+	</header>
+
+	<section>
+		<p>Los archivos utilizados en este tema son:</p>
+		<ul>
+			<li>HTML: <code>optimizacion.html</code></li>
+			<li>CSS: <code>css/estilos.css</code></li>
+			<li>CSS: <code>css/estilos_pselement.css</code></li>
+		</ul>
+	</section>
+
+	<section class="cajagris">
+		<h2>Que es un pseudoelemento</h2>
+		<p>Los pseudoelementos se utilizan junto con los selectores para modificar el estilo de una parte concreta del elemento HTML al que se le está aplicando la regla.</p>
+		<p>La sintáxis consiste en añadir al final del selector "::nombre_pseudoelemento".</p>
+		<div class="cajaejemplo csspre">	Ejemplo<br>
+	<code>#cajaejemplo > div p<strong>::before</strong> {
+		content: "Ejemplo -"
+		font-weight: bold;
+	}</code>
+		</div>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>::before</h2>
+		<p>Este pseudoelemento se utiliza junto con la propiedad <strong><code>content</code></strong> para añadir al elemento (indicado en el selector) un contenido <strong>antes</strong> del que ya se ha declarado en el HTML</p>
+		<p>El contenido puede ser texto, el valor de un atributo del elemento, una URL que contenga una imagen, un contador ... Para más información: <a href="http://www.w3schools.com/cssref/pr_gen_content.asp" target="_blank" title="Abre nueva ventana">content en w3schools</a>.</p>
+		<p>Junto con <code>content</code> se pueden añadir otras declaraciones para aplicar estilos al contenido a añadir.</p>
+		<div class="cajaejemplo cajacolumna">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;p&gt;Resultado&lt;/p&gt;
+	&lt;p id="psbefore"&gt;Un párrafo para comenzar&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psbefore::before {
+	content: "Inicio - ";
+	color: green;
+	font-weight: bold;
+}</code>
+			</div>
+
+			<div>
+				<p>Resultado</p>
+				<p id="psbefore">Un párrafo para comenzar</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="cajagris">
+		<h2>::after</h2>
+		<p>Funciona de manera idéntica a <code>::before</code> salvo que añade el valor de <code>content</code> <strong>después del contenido</strong> del elemento HTML que indica el selector.</p>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>::first-letter</h2>
+		<p>Permite modificar el estilo de <strong>la primera letra</strong> del elemento HTML al que apunta el selector.</p>
+		<p>Evidentemente se utiliza con elementos que contengan texto.</p>
+		<div class="cajaejemplo cajacolumna">
+
+			<div class="csspre">HTML<br>
+<code>&lt;div&gt;
+	&lt;p&gt;Resultado&lt;/p&gt;
+	&lt;p id="psfletter"&gt;En un lugar de la Mancha&lt;/p&gt;
+&lt;/div&gt;</code>
+			</div>
+
+			<div class="csspre">CSS<br>
+<code>#psfletter::first-letter {
+	font-family: "Times New Roman";
+	font-size: 2em;
+	padding-right: 2px;
+	text-transform: uppercase;
+}</code>
+			</div>
+
+			<div>
+				<p>Resultado</p>
+				<p id="psfletter">En un lugar de la Mancha</p>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="cajagris">
+		<h2>::first-line</h2>
+		<p>Funciona de manera similar a <code>::first-letter</code> pero en lugar de afectar a la primera letra actua sobre <strong>la primera línea de texto</strong>, sea la que sea.</p>
+		<p>El último comentario se refiere a que al modificar el tamaño de centana del navegador las líneas de texto de las cajas se suelen modificar.</p>
+		<p>Prueba a modificar la ventana del navegador:</p>
+		<div class="cajaejemplo">
+			<p id="psfline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum laudantium nemo autem animi, aspernatur, ullam libero id quod nesciunt eum est ex labore similique laborum perspiciatis repellat atque cupiditate maiores officiis officia. Aliquid reprehenderit, aspernatur non soluta autem repudiandae, eligendi, similique voluptatum, consequuntur doloribus cum. Consequatur, dolor necessitatibus error. Voluptatem non mollitia fuga doloremque incidunt earum similique aut voluptatum, placeat!</p>
+		</div>
+	</section>
+
+	<section class="cajaamarilla">
+		<h2>::selection</h2>
+		<p>Modifica el estilo que adquiere el texto de un elemento HTML cuando es seleccionado en pantalla con el cursor.</p>
+		<p>Este pseudoelemento <strong>no es compatible con Firefox</strong> por lo que tendremos que añadir una regla utilizando su vendro prefix: <code>selector::<strong>-moz-</strong>selection</code>.</p>
+		<p>Prueba a seleccionar texto de los siguientes párrafos:</p>
+		<div class="cajaejemplo">
+			<p id="psselection">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora dolor voluptates pariatur sequi animi, nisi ab, quod obcaecati, magnam molestias, necessitatibus illum!</p>
+			<p>Non corporis tempora aperiam culpa excepturi! Blanditiis minima minus delectus. Hic voluptatibus delectus ab accusamus, voluptas sequi quod veniam</p>
+		</div>
+	</section>
+
+<br><br><br><br>
+
+	<footer>
+		<a href="index.html">Home</a>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* Archivo CSS del proyecto común*/
+
+/* Las declaraciones de body se heredarán por sus elementos descendientes
+(p.ej. un <p> creado dentro de <body></body> usarán como fuente Verdana por defecto */
+
+body {
+	font-family: Verdana, sans-serif;
+	/* ACCESIBILIDAD: tamaño de fuente en %. De esta forma el contenido de texto del
+	documento se adaptará en cada medio. Lo tamaños de fuente para cada elemento
+	concreto (cabeceras, párrafos, etc) se deberían definir de manera relativa en em
+	para completar la accesibilidad */
+	font-size: 100%;
+}
+
+a {
+	color: #262626;
+}
+footer {
+	background-color: black;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	padding: 20px;
+}
+footer>a {
+	color: white;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+
+.alternativo {
+	color: #262626;
+	/* La siguiente línea define el texto de la clase como subrayado, similar al efecto
+	estético de la etiqueta <u> */
+	text-decoration: underline;
+}
+
+
+/* ID para definir el estilo del menú de navegación que se incluya en un bloque,
+independientemente de que se utilice <nav> */
+
+#navegador {
+	background-color: #29293d;
+	color: #f0f0f5;
+	/* La siguiente línea define el texto del ID en negrita (bold), similar al efecto
+	estético de las etiquetas <b> y <strong> */
+	font-weight: bold;
+}
+
+.rojo {
+	color: #800000;
+}
+
+.azul {
+	color: #003399;
+}
+
+.cajaamarilla{
+	/* La siguiente línea crea un margen exterior del bloque que utilice la clase, 2px
+	arriba y abajo, y 10px a izquierda y derecha */
+	margin: 2px 10px;
+	/* La siguiente línea crea un margen interior al bloque que utilice la clase de manera
+	que exista un espacio perimetral de 2px entre el borde del bloque y su contenido */
+	padding: 2px;
+	background: #ffff66;
+}
+
+.cajagris{
+	margin: 2px 10px;
+	padding: 2px;
+	background: #f2f2f2;
+}

@@ -1,0 +1,31 @@
+/* Estilos para ejemplos de pseudoelementos */
+#psbefore::before {
+	content: "Inicio - ";
+	color: green;
+	font-weight: bold;
+}
+
+#psfletter::first-letter {
+	font-family: "Times New Roman";
+	font-size: 2em;
+	padding-right: 2px;
+	text-transform: uppercase;
+	background-color: lightyellow;
+}
+
+#psfline::first-line {
+	color: red;
+	text-decoration: line-through;
+	font-size: 2em;
+}
+
+/* Para compatibilizar ::selection con Firefox */
+#psselection::-moz-selection {
+	background-color: red;
+	color: white;
+}
+/* ::selection para el resto de navegadores */
+#psselection::selection {
+	background-color: red;
+	color: white;
+}

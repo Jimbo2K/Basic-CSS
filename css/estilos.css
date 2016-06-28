@@ -1,0 +1,92 @@
+/* hoja de estilos principal y PERMANENTE*/
+body {
+	font-family: Verdana, sans-serif;
+	/* ACCESIBILIDAD: tamaño de fuente en %. De esta forma el contenido de texto del
+	documento se adaptará en cada medio. Lo tamaños de fuente para cada elemento
+	concreto (cabeceras, párrafos, etc) se deberían definir de manera relativa en em
+	para completar la accesibilidad */
+	font-size: .9em;
+}
+a {
+	color: #262626;
+}
+footer {
+	background-color: black;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	padding: 20px;
+}
+footer>a {
+	color: white;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+.csspre {
+	white-space: pre-wrap;
+}
+.cajaamarilla{
+	/* La siguiente línea crea un margen exterior del bloque que utilice la clase, 2px
+	arriba y abajo, y 10px a izquierda y derecha */
+	margin: 2px 10px;
+	/* La siguiente línea crea un margen interior al bloque que utilice la clase de manera
+	que exista un espacio perimetral de 5px entre el borde del bloque y su contenido */
+	padding: 5px;
+	background: #ffff99;
+}
+.cajagris{
+	margin: 2px 10px;
+	padding: 5px;
+	background: #f2f2f2;
+}
+.cajaejemplo {
+	background-color: #ccc;
+	border: 1px solid black;
+	font-size: 1.3em;
+	text-align: justify;
+	margin: 10px 10px;
+	padding: 5px;
+}
+.centrar {
+	display: block;
+	margin: 0 auto;
+}
+.cajacolumna {
+	background-color: #ccc;
+	border: 1px solid black;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	margin: 10px 10px;
+	padding: 5px;
+}
+.tabulada {
+	margin-left: 30px;
+}
+
+/* La clase parrafop sólo se ha definido como PERMANENTE para vinculos_css.html*/
+.parrafop {
+	font-family: Verdana, sans-serif;
+	font-size: 100%;
+	color: blue;
+}
+/* La clase parrafo y cajarena se han definido aquí como estilo PERMANENTE para vinculos_css.html
+pero también se han definido en la hoja preferente (css/estilo_preferred.css) y en la hojas
+alternativa (css/estilo_alt1.css) */
+.parrafo {
+	font-family: Verdana, sans-serif;
+	font-size: 100%;
+	color: blue;
+}
+.cajarena {
+	margin: 10px auto;
+	border: 2px solid blue;
+}
